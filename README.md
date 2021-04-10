@@ -19,7 +19,7 @@ The menu of this clock is designed around a struct in PROGMEM in order to use le
 All the libraries used are in a zip file (unzip under your arduino / libraries folder), the font file form Adafruit_GFX is modified “ char is replaced by a full circle character used by the BCD clock display and the second half of the table is removed in order to save space.
 
 There is a precompiled bin file that you can use to program the bluepill - Generic STM32F103C series, STM32F103CB (20k RAM, 128k Flash) 48Mhz (slow - with USB) or 72 Mhz. Optimize -O2. there are many ways to program STM32 but the easier way is to use an ST-Link.
-For the brave ones install all the files in Arduino and compile the code - use Additional Boards manger URL:http://dan.drown.org/stm32duino/package_STM32duino_index.json to install the Bluepill specific files.
+For the brave ones out there interested to make this better: install all the files in Arduino and compile the code - use Additional Boards manger URL:http://dan.drown.org/stm32duino/package_STM32duino_index.json to install the Bluepill specific files.
 
 
 
