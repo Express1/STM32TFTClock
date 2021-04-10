@@ -7,12 +7,12 @@ Also the Blupill does have a 32Khz crystal for RTC and a backup CR2032 battery w
 A GPS module is used to set the clock and display the QTH locator. 
 
 BOM:
-Bluepill moduile with 128K flash, even a chienese clone SRM32 will work.
-320X240 ILI9341 TFT LCD any size with a 14 pin connector, tested wiht 2.8 and 3.2'.
-Neo 6M or 8M GPS module with antenna/ external antenna. Depending on the local conditions and building you may need an external antenn to get a good GPS fix. I will suggest a neo-8M with a full-size patch antenna or external antenna if that will not work inside. DS18B20 temperature sensor with F/C temperature display.
+Bluepill module with 128K flash, even a Chinese clone SRM32 will work.
+320X240 ILI9341 TFT LCD any size with a 14 pin connector, tested whit 2.8' and 3.2' displays.
+Neo 6M or 8M GPS module with antenna/ external antenna. Depending on the local conditions and building you may need an external antenna to get a good GPS fix. I will suggest a neo-8M with a full-size patch antenna or external antenna if that will not work inside. DS18B20 temperature sensor with F/C temperature display.
 3 push buttons to control the clock and a piezo buzzer for alarm. See the attached schematic.
 
-The clock has a menu with many options in order to set the time, date, 2 alarms, DST settings and multiple clock faces - Analog, Digital, BCD, GPS details - see attached pictures, display backlight will automatically adjust day/night.
+The clock has a menu with many options in order to set the time, date, 2 alarms, DST settings and multiple clock faces - Analog, Digital, BCD, GPS details - see attached pictures, display back-light will automatically adjust day/night.
 
 The menu of this clock is designed around a struct in PROGMEM in order to use less RAM, for those interested this can be reused as a menu for other projects. It was an interesting exercise to create and is working quite nice with the three buttons: "-", "Setup" and "+". Can be easily extended as necessary.
 
