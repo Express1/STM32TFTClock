@@ -107,7 +107,7 @@ const MenuRecord menu[MENUCOUNT] PROGMEM = {
   , { 0, 12, "DSToffMo", NULL , exitmenu2 }
   , { 1, 16, "LCD Day", NULL , setlcd }
   , { 1, 16, "LCD Night", NULL , setlcdn }
-  , { -12, 12, "Time Zone", NULL , exitmenu2 }
+  , { -12, 12, "Time Zone", NULL , setexit3 }
   , { -50, 50, "Temp Corr/10", NULL , exitmenu2 }
   , { 0, 23, "Alarm2 hour", NULL, exitmenu2 }
   , { 0, 59, "Alarm2 min", NULL, exitmenu2 }

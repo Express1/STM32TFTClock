@@ -106,7 +106,7 @@ unsigned long fix_age, timeg, dateg;
 #define Analog_Button PA2 //analog pin where the buttons are connected
 #define PINSPK PB15       // speaker to ground
 #define PINTFTLED PA8     //PWM for lcd backlight
-#define debug_s
+//#define debug_s
 
 //buttons
 #define HH 300  //hysteresis

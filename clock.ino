@@ -188,17 +188,17 @@ void pyear(uint16_t hh)  //default 260
   menuval[1] min 0 -59
   menuval[2] month 1-12
   menuval[3] dayofmonth 1-31
-  menuval[4] dayofweek 0-6, 0=Monday
-  expected Su=0
+  menuval[4] dayofweek 0-6, 0=Monday/6 Su
+  expected Su=0 w
   menuval[5] year last 2 digits 19XX
 */
 {
   int w;
-  if (menuval[4] == 6 ) {
+  if (menuval[4] == 6 ) {  //if is Su=6, w=0, w is day number starting Su=0 to Sat=6, US week start on Su
     w = 0;
   }
   else {
-    w = menuval[4] + 1;
+    w = menuval[4] + 1;  
   }
 
   int days[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
@@ -215,12 +215,13 @@ void pyear(uint16_t hh)  //default 260
     DN = days[(menuval[2] - 1)] + menuval[3];
   }
   // Now start to calculate Week number
-  if (w == 0) {
-    WN = (DN - 7 + 10) / 7;                                  //if it is sunday (time library returns 0)
-  }
-  else {
-    WN = (DN - w + 10) / 7;                                  // for the other days of week
-  }
+  //if (w == 0) {
+  //  WN = (DN - 7 + 10) / 7;                                  //if it is sunday (time library returns 0)
+  //}
+  //else {
+  //  WN = (DN - w + 10) / 7;                                  // for the other days of week
+  //}
+  WN = (DN +4 +w) / 7;
 
   itoa ((menuval[5] + 2000), buffer, 10);
   memcpy_P (&ast, wday[0], 7);
@@ -748,7 +749,8 @@ void myclock()
 
 
       // check for DST
-      //DST on
+      //DST on second SUN in March
+      // US week start on Sun, EU week does start on MO
       if (menuval[12] == menuval[2]) //month
       {
 #ifdef debug_s
@@ -761,8 +763,10 @@ void myclock()
         Serial.print(F(" "));
         Serial.println(menuval[4]);  //mo weekno hour dayno
 #endif
-        if (((menuval[3] + 1) / 7 + 1) == menuval[11] && menuval[0] == 2 && menuval[4] == 6) // week number, 2AM, Sunday=day 6
-        //if (((menuval[3] + 1) / 7 + 1) == menuval[11] && menuval[0] == 2 && menuval[4] == 6) // week numer, 2AM, sunday = day 6
+
+
+        
+        if (((menuval[3] - 1) / 7 + 1) == menuval[11] && menuval[0] == 2 && menuval[4] == 6) // Sunday number of month, 2AM, Sunday=day 6
         {
           //DST on + 1 hour, change timezone
           if (setdst != 1 ) {
@@ -787,8 +791,7 @@ void myclock()
         Serial.print(F(" "));
         Serial.println(menuval[4]); //mo weekno hour dayno
 #endif
-        if (((menuval[3] + 1) / 7 + 1) == menuval[13] && menuval[0] == 2 && menuval[4] == 6) // week numer, 2AM, sunday = day 6
-        //if (((menuval[3] + 1) / 7 + 1) == menuval[13] && menuval[0] == 2 && menuval[4] == 5) // week numer, 2AM, sunday = day 6
+        if (((menuval[3] - 1) / 7 + 1) == menuval[13] && menuval[0] == 2 && menuval[4] == 6) // Sunday number of month, 2AM, Sunday=day 6
         {
           //DST off -1 hour, change timezone
           if (setdst != 2 ) {
